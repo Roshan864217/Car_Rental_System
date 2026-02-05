@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation</title>
+    <link rel="stylesheet" href="stylesconfirmation.css">
+</head>
+<body>
+    <header>
+        <h1>Booking Confirmation</h1>
+    </header>
+
+    <section class="confirmation">
+        <div class="container">
+            <h2>Thank you for your booking!</h2>
+            <p>Your booking details are as follows:</p>
+
+            <div class="confirmation-slip">
+                <p><strong>Name:</strong> <span id="confirm-name"></span></p>
+                <p><strong>Email:</strong> <span id="confirm-email"></span></p>
+                <p><strong>Phone:</strong> <span id="confirm-phone"></span></p>
+                <p><strong>Start Date:</strong> <span id="confirm-start-date"></span></p>
+                <p><strong>End Date:</strong> <span id="confirm-end-date"></span></p>
+                <p><strong>Payment Method:</strong> <span id="confirm-payment"></span></p>
+            </div>
+
+            <button onclick="printSlip()">Print</button>
+            <br><br>
+            <button> <a href="index.php">Return Home</a> </button>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Retrieve details from localStorage
+            document.getElementById("confirm-name").textContent = localStorage.getItem("bookingName");
+            document.getElementById("confirm-email").textContent = localStorage.getItem("bookingEmail");
+            document.getElementById("confirm-phone").textContent = localStorage.getItem("bookingPhone");
+            document.getElementById("confirm-start-date").textContent = localStorage.getItem("bookingStartDate");
+            document.getElementById("confirm-end-date").textContent = localStorage.getItem("bookingEndDate");
+            document.getElementById("confirm-payment").textContent = localStorage.getItem("bookingPayment");
+        });
+
+        // Function to print confirmation slip
+        function printSlip() {
+            window.print();
+        }
+    </script>
+</body>
+</html>
